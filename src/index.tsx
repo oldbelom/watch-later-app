@@ -1,3 +1,10 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
 import "./scss/style.scss";
 
-console.log(789987);
+import App from "./App";
+
+const rootElement = document.querySelector("#root");
+
+ReactDOM.render(<App></App>, rootElement);
