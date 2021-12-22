@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #282c34;
+  color: #fff;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}

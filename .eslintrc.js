@@ -36,6 +36,7 @@ module.exports = {
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "class-methods-use-this": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
   settings: {
     react: {
