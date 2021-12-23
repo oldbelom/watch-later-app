@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent } from "react";
 import Button from "../Button/Button";
+import FilmCard from "../FilmsList/FilmCard";
 import Loader from "../Loader/Loader";
 
 import "./SearchBlock.scss";
@@ -10,6 +11,9 @@ const API_SEARCH_URL =
 
 interface ISearchResult {
   nameRu: string;
+  posterUrlPreview: string;
+  year: string;
+  genres: [];
 }
 
 interface State {
@@ -55,7 +59,7 @@ export default class SearchBlock extends React.Component<
 
   render() {
     return (
-      <div data-testid="search-block">
+      <div className="search-block" data-testid="search-block">
         <form onSubmit={this.handleSubmit} data-testid="form">
           <input
             type="text"
@@ -69,9 +73,22 @@ export default class SearchBlock extends React.Component<
             <Button type="submit" text="Найти фильм" />
           )}
         </form>
-        {this.state.searchResult.map((item: ISearchResult, index: number) => (
-          <div key={index}>{item.nameRu}</div>
-        ))}
+        {!this.state.isLoading && (
+          <div className="search-block__result">
+            {this.state.searchResult &&
+              this.state.searchResult.map(
+                (film: ISearchResult, index: number) => (
+                  <FilmCard
+                    key={`${index}_${film.year}`}
+                    nameRu={film.nameRu}
+                    year={film.year}
+                    posterUrlPreview={film.posterUrlPreview}
+                    genres={film.genres}
+                  />
+                )
+              )}
+          </div>
+        )}
       </div>
     );
   }

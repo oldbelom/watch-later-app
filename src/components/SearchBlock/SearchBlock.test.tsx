@@ -20,7 +20,10 @@ describe("SearchBlock", () => {
     // @ts-ignore:next-line
     global.fetch = jest.fn(() =>
       Promise.resolve({
-        json: () => Promise.resolve({ films: [{ nameRu: "Шырли-мырли" }] }),
+        json: () =>
+          Promise.resolve({
+            films: [{ nameRu: "Шырли-мырли", genres: [{ genre: "комедия" }] }],
+          }),
       })
     );
 
