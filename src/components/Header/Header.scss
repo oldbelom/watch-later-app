@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 30px;
+  border-bottom: 3px solid #61dafb;
+
+  a {
+    font-weight: 600;
+  }
+
+  .button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .active {
+    color: #61dafb;
+  }
+}
