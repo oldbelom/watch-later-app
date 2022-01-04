@@ -75,18 +75,18 @@ export default class SearchBlock extends React.Component<
         </form>
         {!this.state.isLoading && (
           <div className="search-block__result">
-            {this.state.searchResult &&
-              this.state.searchResult.map(
-                (film: ISearchResult, index: number) => (
-                  <FilmCard
-                    key={`${index}_${film.year}`}
-                    nameRu={film.nameRu}
-                    year={film.year}
-                    posterUrlPreview={film.posterUrlPreview}
-                    genres={film.genres}
-                  />
-                )
-              )}
+            {this.state.searchResult.map(
+              (film: ISearchResult, index: number) => (
+                <FilmCard
+                  key={`${index}_${film.year}`}
+                  nameRu={film.nameRu}
+                  year={film.year}
+                  posterUrlPreview={film.posterUrlPreview}
+                  genres={film.genres}
+                  film={film}
+                />
+              )
+            )}
           </div>
         )}
       </div>

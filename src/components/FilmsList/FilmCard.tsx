@@ -6,11 +6,19 @@ interface Genre {
   genre: string;
 }
 
+interface ISearchResult {
+  nameRu: string;
+  posterUrlPreview: string;
+  year: string;
+  genres: [];
+}
+
 interface Props {
   nameRu: string;
   posterUrlPreview: string;
   year: string;
   genres: Genre[];
+  film: ISearchResult;
 }
 
 const FilmCard: React.FC<Props> = (props) => (
@@ -23,7 +31,7 @@ const FilmCard: React.FC<Props> = (props) => (
     </p>
     <p>{props.year}</p>
     <p>{props.genres.map((genre: Genre) => genre.genre).join(" ")}</p>
-    <Button text="добавить" />
+    <Button onClick={() => console.log(props.film)} text="добавить" />
   </div>
 );
 
