@@ -14,6 +14,7 @@ interface ISearchResult {
   posterUrlPreview: string;
   year: string;
   genres: [];
+  filmId: number;
 }
 
 interface State {

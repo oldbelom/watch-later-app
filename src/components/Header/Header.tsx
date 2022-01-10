@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Button from "../Button/Button";
+import { Context } from "../../index";
 
 import "./Header.scss";
 
 const Header = () => {
-  const user = true;
+  const { auth } = useContext(Context);
+  const [user] = useAuthState(auth);
 
   return (
     <div className="header">
@@ -23,7 +26,7 @@ const Header = () => {
               <Button text="О проекте" />
             </NavLink>
           </nav>
-          <Button text="Выйти" />
+          <Button onClick={() => auth.signOut()} text="Выйти" />
         </>
       ) : (
         <>

@@ -1,15 +1,17 @@
 import HomePage from "./pages/HomePage";
 import Playlist from "./pages/Playlist";
+import Login from "./pages/Login";
+import Signin from "./pages/Signin";
 import About from "./pages/About";
 
 export const publicRoutes = [
   {
     path: "/login",
-    Component: HomePage,
+    Component: Login,
   },
   {
     path: "/signin",
-    Component: HomePage,
+    Component: Signin,
   },
 ];
 
