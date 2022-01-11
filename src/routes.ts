@@ -1,8 +1,8 @@
-import HomePage from "./pages/HomePage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 import Playlist from "./pages/Playlist";
 import Login from "./pages/Login";
 import Signin from "./pages/Signin";
-import About from "./pages/About";
+import About from "./pages/About/About";
 
 export const publicRoutes = [
   {
@@ -18,7 +18,7 @@ export const publicRoutes = [
 export const privateRoutes = [
   {
     path: "/",
-    Component: HomePage,
+    Component: SearchPage,
   },
   {
     path: "/playlist",

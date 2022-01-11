@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+html,
+body,
 #root {
   height: 100%;
 }
@@ -17,17 +19,49 @@ body {
   font-family: sans-serif;
 }
 
-.home {
+input {
+  margin-bottom: 40px;
+  width: 50vw;
+  height: 50px;
+  padding: 5px 15px;
+  font-size: 22px;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 100%;
 }
 
-a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
+.page-indent {
+  padding: 30px 50px;
+}
+
+.auth-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 80px);
+
+  &__title {
+    font-size: 25px;
+    padding-bottom: 30px;
+  }
+
+  &__error {
+    color: tomato;
+  }
+
+  &__btn-block {
+    height: 120px;
+    text-align: center;
+  }
 }

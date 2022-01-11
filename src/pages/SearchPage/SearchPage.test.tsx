@@ -1,17 +1,17 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import "../FilmCard/node_modules/@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
-import SearchBlock from "./SearchBlock";
+import SearchPage from "./SearchPage";
 
-describe("SearchBlock", () => {
+describe("SearchPage", () => {
   it("render component", () => {
-    render(<SearchBlock />);
-    const element = screen.getByTestId("search-block");
+    render(<SearchPage />);
+    const element = screen.getByTestId("search-page");
     expect(element).toBeInTheDocument();
   });
   it("call handleChange function when user type smth in input", () => {
-    render(<SearchBlock />);
+    render(<SearchPage />);
     const input = screen.getByTestId("input") as HTMLInputElement;
     userEvent.type(input, "Joker");
     expect(input.value).toBe("Joker");
@@ -27,7 +27,7 @@ describe("SearchBlock", () => {
       })
     );
 
-    render(<SearchBlock />);
+    render(<SearchPage />);
     const form = screen.getByTestId("form") as HTMLInputElement;
     fireEvent.submit(form);
 

@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FormEvent } from "react";
-import Button from "../Button/Button";
-import FilmCard from "../FilmsList/FilmCard";
-import Loader from "../Loader/Loader";
+import Button from "../../components/Button/Button";
+import FilmCard from "../../components/FilmCard/FilmCard";
+import Loader from "../../components/Loader/Loader";
 
-import "./SearchBlock.scss";
+import "./SearchPage.scss";
 
 const API_KEY = "ede3ffdb-566b-4049-895b-0d1c2bfd60fb";
 const API_SEARCH_URL =
@@ -23,7 +23,7 @@ interface State {
   isLoading: boolean;
 }
 
-export default class SearchBlock extends React.Component<
+export default class SearchPage extends React.Component<
   Record<string, unknown>,
   State
 > {
@@ -60,13 +60,18 @@ export default class SearchBlock extends React.Component<
 
   render() {
     return (
-      <div className="search-block" data-testid="search-block">
-        <form onSubmit={this.handleSubmit} data-testid="form">
+      <div className="search-page page-indent" data-testid="search-page">
+        <form
+          className="search-page__form"
+          onSubmit={this.handleSubmit}
+          data-testid="form"
+        >
           <input
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
             data-testid="input"
+            placeholder="Введите название фильма"
           />
           {this.state.isLoading ? (
             <Loader />
@@ -75,7 +80,7 @@ export default class SearchBlock extends React.Component<
           )}
         </form>
         {!this.state.isLoading && (
-          <div className="search-block__result">
+          <div className="search-page__result">
             {this.state.searchResult.map(
               (film: ISearchResult, index: number) => (
                 <FilmCard

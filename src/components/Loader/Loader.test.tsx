@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import "../FilmCard/node_modules/@testing-library/jest-dom";
 import Loader from "./Loader";
 
 describe("Loader", () => {

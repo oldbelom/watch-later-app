@@ -8,12 +8,15 @@ import Loader from "./components/Loader/Loader";
 
 const App = () => {
   const { auth } = useContext(Context);
-  const [user, loading, error] = useAuthState(auth);
+  const [, loading] = useAuthState(auth);
 
   if (loading) {
-    return <Loader />;
+    return (
+      <div className="absolute-center">
+        <Loader />
+      </div>
+    );
   }
-  console.log(auth);
 
   return (
     <BrowserRouter>

@@ -24,7 +24,7 @@ const Signin = () => {
   };
 
   return (
-    <form className="container auth-form" onSubmit={signin}>
+    <form className="auth-form" onSubmit={signin}>
       <h3 className="auth-form__title">Вход</h3>
       <input
         type="text"

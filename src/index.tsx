@@ -16,20 +16,21 @@ firebase.initializeApp({
   appId: "1:368375111064:web:e4d22f8394e472f67e9fed",
 });
 
-export type ContentType = {
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
+type ContextType = {
   firebase: { [key: string]: any };
   auth: { [key: string]: any };
   firestore: { [key: string]: any };
 };
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-
-export const Context = createContext<ContentType>({
+export const Context = createContext<ContextType>({
   firebase,
   auth,
   firestore,
 });
+
 const rootElement = document.querySelector("#root");
 
 ReactDOM.render(

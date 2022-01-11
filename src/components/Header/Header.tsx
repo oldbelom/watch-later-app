@@ -12,19 +12,15 @@ const Header = () => {
 
   return (
     <div className="header">
-      <h1>Watch later</h1>
+      <h1 className="header__title">Watch later</h1>
       {user ? (
         <>
           <nav>
-            <NavLink to="/">
-              <Button text="Домой" />
+            <NavLink exact={true} to="/">
+              Поиск
             </NavLink>
-            <NavLink to="/playlist">
-              <Button text="Плейлист" />
-            </NavLink>
-            <NavLink to="/about">
-              <Button text="О проекте" />
-            </NavLink>
+            <NavLink to="/playlist">Плейлист</NavLink>
+            <NavLink to="/about">О проекте</NavLink>
           </nav>
           <Button onClick={() => auth.signOut()} text="Выйти" />
         </>
