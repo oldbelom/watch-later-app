@@ -11,8 +11,8 @@ module.exports = {
     "airbnb-base",
     "plugin:jest/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
     "plugin:react/jsx-runtime",
+    "plugin:react/recommended",
     "prettier",
   ],
   parserOptions: {
