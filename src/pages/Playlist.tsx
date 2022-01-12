@@ -10,11 +10,6 @@ const Playlist = () => {
   const [user] = useAuthState(auth);
   const [films, loading] = useCollectionData(firestore.collection(user.uid));
 
-  const deleteFilm = async (filmId: string) => {
-    const ref = await firestore.collection(user.uid).doc(filmId);
-    ref.delete();
-  };
-
   if (loading) {
     return (
       <div className="absolute-center">
@@ -25,20 +20,11 @@ const Playlist = () => {
 
   return (
     <div className="page-indent">
-      <h2>Список фильмов, которые вы добавили:</h2>
+      <h2>Фильмы, которые вы добавили:</h2>
       <div className="search-page__result">
         {films &&
-          films.map((film: any, index: number) => (
-            <div key={`${index}_${film.year}`}>
-              <FilmCard
-                nameRu={film.nameRu}
-                year={film.year}
-                posterUrlPreview={film.posterUrlPreview}
-                genres={film.genres}
-                film={film}
-              />
-              {/* <button onClick={() => deleteFilm(String(film.filmId))}>удалить</button> */}
-            </div>
+          films.map((film: any) => (
+            <FilmCard key={film.filmId} film={film} isDeleteButton />
           ))}
       </div>
     </div>

@@ -8,7 +8,7 @@ interface Genre {
   genre: string;
 }
 
-interface ISearchResult {
+interface Film {
   nameRu: string;
   posterUrlPreview: string;
   year: string;
@@ -17,35 +17,41 @@ interface ISearchResult {
 }
 
 interface Props {
-  nameRu: string;
-  posterUrlPreview: string;
-  year: string;
-  genres: Genre[];
-  film: ISearchResult;
+  film: Film;
+  isDeleteButton?: boolean;
 }
 
-const FilmCard: React.FC<Props> = (props) => {
+const FilmCard: React.FC<Props> = ({ film, isDeleteButton }) => {
   const { auth, firestore } = useContext(Context);
   const [user] = useAuthState(auth);
 
   const addFilmToBase = async () => {
-    await firestore
-      .collection(user.uid)
-      .doc(String(props.film.filmId))
-      .set(props.film);
+    await firestore.collection(user.uid).doc(String(film.filmId)).set(film);
+  };
+
+  const deleteFilm = async (filmId: string) => {
+    const ref = await firestore.collection(user.uid).doc(filmId);
+    ref.delete();
   };
 
   return (
     <div className="film-card" data-testid="film-card">
       <div className="film-card__img">
-        <img src={props.posterUrlPreview} alt={props.nameRu} />
+        <img src={film.posterUrlPreview} alt={film.nameRu} />
       </div>
       <p data-testid="film-name">
-        {props.nameRu ? props.nameRu : "Название отсутствует"}
+        {film.nameRu ? film.nameRu : "Название отсутствует"}
       </p>
-      <p>{props.year}</p>
-      <p>{props.genres.map((genre: Genre) => genre.genre).join(" ")}</p>
-      <Button onClick={addFilmToBase} text="добавить" />
+      <p>{film.year}</p>
+      <p>{film.genres.map((genre: Genre) => genre.genre).join(" ")}</p>
+      {isDeleteButton ? (
+        <Button
+          onClick={() => deleteFilm(String(film.filmId))}
+          text="удалить"
+        />
+      ) : (
+        <Button onClick={addFilmToBase} text="добавить" />
+      )}
     </div>
   );
 };

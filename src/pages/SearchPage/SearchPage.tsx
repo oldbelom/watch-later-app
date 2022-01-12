@@ -81,18 +81,9 @@ export default class SearchPage extends React.Component<
         </form>
         {!this.state.isLoading && (
           <div className="search-page__result">
-            {this.state.searchResult.map(
-              (film: ISearchResult, index: number) => (
-                <FilmCard
-                  key={`${index}_${film.year}`}
-                  nameRu={film.nameRu}
-                  year={film.year}
-                  posterUrlPreview={film.posterUrlPreview}
-                  genres={film.genres}
-                  film={film}
-                />
-              )
-            )}
+            {this.state.searchResult.map((film: ISearchResult) => (
+              <FilmCard key={film.filmId} film={film} />
+            ))}
           </div>
         )}
       </div>
