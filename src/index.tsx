@@ -19,12 +19,6 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-type ContextType = {
-  firebase: { [key: string]: any };
-  auth: { [key: string]: any };
-  firestore: { [key: string]: any };
-};
-
 export const Context = createContext<ContextType>({
   firebase,
   auth,

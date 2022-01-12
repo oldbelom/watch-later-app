@@ -1,13 +1,7 @@
 import React from "react";
 import "./Button.scss";
 
-interface Props {
-  type?: "button" | "submit" | "reset";
-  text?: string;
-  onClick?: () => any;
-}
-
-export default function Button(props: Props) {
+export default function Button(props: ButtonProps) {
   return (
     <button
       type={props.type}

@@ -9,23 +9,9 @@ const API_KEY = "ede3ffdb-566b-4049-895b-0d1c2bfd60fb";
 const API_SEARCH_URL =
   "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
 
-interface ISearchResult {
-  nameRu: string;
-  posterUrlPreview: string;
-  year: string;
-  genres: [];
-  filmId: number;
-}
-
-interface State {
-  value: string;
-  searchResult: ISearchResult[];
-  isLoading: boolean;
-}
-
 export default class SearchPage extends React.Component<
   Record<string, unknown>,
-  State
+  SearchPageState
 > {
   state = {
     value: "",
@@ -81,7 +67,7 @@ export default class SearchPage extends React.Component<
         </form>
         {!this.state.isLoading && (
           <div className="search-page__result">
-            {this.state.searchResult.map((film: ISearchResult) => (
+            {this.state.searchResult.map((film: Film) => (
               <FilmCard key={film.filmId} film={film} />
             ))}
           </div>

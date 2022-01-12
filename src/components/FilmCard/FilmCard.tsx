@@ -4,24 +4,7 @@ import Button from "../Button/Button";
 import { Context } from "../../index";
 import "./FilmCard.scss";
 
-interface Genre {
-  genre: string;
-}
-
-interface Film {
-  nameRu: string;
-  posterUrlPreview: string;
-  year: string;
-  genres: [];
-  filmId: number;
-}
-
-interface Props {
-  film: Film;
-  isDeleteButton?: boolean;
-}
-
-const FilmCard: React.FC<Props> = ({ film, isDeleteButton }) => {
+const FilmCard: React.FC<FilmCardProps> = ({ film, isDeleteButton }) => {
   const { auth, firestore } = useContext(Context);
   const [user] = useAuthState(auth);
 
