@@ -9,6 +9,7 @@ import "./Header.scss";
 const Header = () => {
   const { auth } = useContext(Context);
   const [user] = useAuthState(auth);
+  console.log(user);
 
   return (
     <div className="header">
@@ -22,7 +23,10 @@ const Header = () => {
             <NavLink to="/playlist">Плейлист</NavLink>
             <NavLink to="/about">О проекте</NavLink>
           </nav>
-          <Button onClick={() => auth.signOut()} text="Выйти" />
+          <div>
+            <p className="header__user-name">{user.email}</p>
+            <Button onClick={() => auth.signOut()} text="Выйти" />
+          </div>
         </>
       ) : (
         <>

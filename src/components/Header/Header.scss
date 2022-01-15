@@ -9,6 +9,10 @@
     margin-right: auto;
   }
 
+  &__user-name {
+    margin: 0 0 7px 0;
+  }
+
   a {
     color: #fff;
     text-decoration: none;
@@ -18,7 +22,9 @@
   }
 
   .button {
-    padding: 10px 15px;
+    display: block;
+    margin-left: auto;
+    padding: 5px 15px;
     font-size: 14px;
   }
 
