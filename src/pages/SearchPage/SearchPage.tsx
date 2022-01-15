@@ -10,7 +10,7 @@ const API_SEARCH_URL =
   "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
 
 export default class SearchPage extends React.Component<
-  Record<string, unknown>,
+  SearchPageProps,
   SearchPageState
 > {
   state = {
@@ -43,6 +43,13 @@ export default class SearchPage extends React.Component<
   handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     this.setState({ value: e.target.value });
   };
+
+  componentDidMount() {
+    const { filmname } = this.props.match.params;
+    if (filmname) {
+      this.setState({ value: filmname });
+    }
+  }
 
   render() {
     return (

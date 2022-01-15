@@ -4,11 +4,15 @@ type ContextType = {
   firestore: { [key: string]: any };
 };
 
+interface Genre {
+  genre: string;
+}
+
 interface Film {
   nameRu: string;
   posterUrlPreview: string;
   year: string;
-  genres: [];
+  genres: Genre[];
   filmId: number;
 }
 
@@ -18,8 +22,8 @@ interface SearchPageState {
   isLoading: boolean;
 }
 
-interface Genre {
-  genre: string;
+interface SearchPageProps {
+  match: { params };
 }
 
 interface FilmCardProps {

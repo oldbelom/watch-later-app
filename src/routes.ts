@@ -28,4 +28,8 @@ export const privateRoutes = [
     path: "/about",
     Component: About,
   },
+  {
+    path: "/film/:filmname",
+    Component: SearchPage,
+  },
 ];
