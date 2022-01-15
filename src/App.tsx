@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Header from "./components/Header/Header";
 import AppRouter from "./components/AppRouter";
@@ -19,10 +19,10 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <AppRouter />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
