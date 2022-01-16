@@ -1,7 +1,7 @@
 import SearchPage from "./pages/SearchPage/SearchPage";
 import Playlist from "./pages/Playlist";
-import Login from "./pages/Login";
-import Signin from "./pages/Signin";
+import Login from "./pages/Login/Login";
+import Signin from "./pages/Signin/Signin";
 import About from "./pages/About/About";
 
 export const publicRoutes = [

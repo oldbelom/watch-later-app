@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import firebase from "firebase";
-import Button from "../components/Button/Button";
+import Button from "../../components/Button/Button";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,23 +24,29 @@ const Login = () => {
   };
 
   return (
-    <form className="auth-form" onSubmit={login}>
+    <form className="auth-form" onSubmit={login} data-testid="login">
       <h3 className="auth-form__title">Регистрация</h3>
       <input
         type="text"
         placeholder="Введите e-mail"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        data-testid="login-email"
       />
       <input
         type="password"
         placeholder="Введите пароль"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        data-testid="login-password"
       />
       <div className="auth-form__btn-block">
         <Button type="submit" text="Зарегистрироваться" />
-        {errorText ? <p className="auth-form__error">{errorText}</p> : null}
+        {errorText ? (
+          <p className="auth-form__error" data-testid="login-error">
+            {errorText}
+          </p>
+        ) : null}
       </div>
     </form>
   );
