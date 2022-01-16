@@ -1,22 +1,22 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import "../FilmCard/node_modules/@testing-library/jest-dom";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import SearchPage from "./SearchPage";
 
 describe("SearchPage", () => {
-  it("render component", () => {
-    render(<SearchPage />);
+  it("render component", async () => {
+    render(<SearchPage match={{ params: "test" }} />);
     const element = screen.getByTestId("search-page");
-    expect(element).toBeInTheDocument();
+    await waitFor(() => expect(element).toBeInTheDocument());
   });
-  it("call handleChange function when user type smth in input", () => {
-    render(<SearchPage />);
+  it("call handleChange function when user type smth in input", async () => {
+    render(<SearchPage match={{ params: "test" }} />);
     const input = screen.getByTestId("input") as HTMLInputElement;
     userEvent.type(input, "Joker");
-    expect(input.value).toBe("Joker");
+    await waitFor(() => expect(input.value).toBe("Joker"));
   });
-  it("make a fetch request when form submit", () => {
+  it("make a fetch request when form submit", async () => {
     // @ts-ignore:next-line
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -27,10 +27,15 @@ describe("SearchPage", () => {
       })
     );
 
-    render(<SearchPage />);
+    render(<SearchPage match={{ params: "test" }} />);
     const form = screen.getByTestId("form") as HTMLInputElement;
     fireEvent.submit(form);
 
-    expect(fetch).toBeCalled();
+    await waitFor(() => expect(fetch).toBeCalled());
+  });
+  it("take props from router parameter", async () => {
+    render(<SearchPage match={{ params: { filmname: "Брат" } }} />);
+    const input = screen.getByTestId("input") as HTMLInputElement;
+    await waitFor(() => expect(input.value).toBe("Брат"));
   });
 });

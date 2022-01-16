@@ -28,7 +28,7 @@ interface SearchPageProps {
 
 interface FilmCardProps {
   film: Film;
-  isDeleteButton?: boolean;
+  deleteButton?: boolean;
 }
 
 interface ButtonProps {

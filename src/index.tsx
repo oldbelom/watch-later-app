@@ -37,5 +37,5 @@ ReactDOM.render(
   >
     <App />
   </Context.Provider>,
-  rootElement
+  rootElement || document.createElement("div")
 );
