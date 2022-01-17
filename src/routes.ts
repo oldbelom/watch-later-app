@@ -1,5 +1,5 @@
 import SearchPage from "./pages/SearchPage/SearchPage";
-import Playlist from "./pages/Playlist";
+import Playlist from "./pages/Playlist/Playlist";
 import Login from "./pages/Login/Login";
 import Signin from "./pages/Signin/Signin";
 import About from "./pages/About/About";

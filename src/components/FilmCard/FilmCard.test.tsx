@@ -1,31 +1,46 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render, screen, waitFor } from "@testing-library/react";
 import FilmCard from "./FilmCard";
 
 describe("Button", () => {
-  it("render component", () => {
-    render(
-      <FilmCard
-        nameRu="The Lost"
-        year="2007"
-        posterUrlPreview=""
-        genres={[{ genre: "приключения" }]}
-      />
-    );
+  it("render component", async () => {
+    const film = {
+      nameRu: "The Lost",
+      year: "2007",
+      posterUrlPreview: "",
+      filmId: 123,
+      genres: [{ genre: "приключения" }],
+    };
+
+    render(<FilmCard film={film} />);
     const element = screen.getByTestId("film-card");
-    expect(element).toBeInTheDocument();
+    await waitFor(() => expect(element).toBeInTheDocument());
   });
-  it("render stub film name if no data", () => {
-    render(
-      <FilmCard
-        nameRu=""
-        year="2007"
-        posterUrlPreview=""
-        genres={[{ genre: "приключения" }]}
-      />
-    );
+  it("render stub film name if no data", async () => {
+    const film = {
+      nameRu: "",
+      year: "2007",
+      posterUrlPreview: "",
+      filmId: 123,
+      genres: [{ genre: "приключения" }],
+    };
+
+    render(<FilmCard film={film} />);
     const element = screen.getByTestId("film-name");
-    expect(element.innerHTML).toBe("Название отсутствует");
+    await waitFor(() => expect(element.innerHTML).toBe("Название отсутствует"));
+  });
+  it('render delete button if there is a property "deleteButton"', async () => {
+    const film = {
+      nameRu: "Брат",
+      year: "2007",
+      posterUrlPreview: "",
+      filmId: 123,
+      genres: [{ genre: "приключения" }],
+    };
+
+    render(<FilmCard film={film} deleteButton />);
+    const deleteButton = screen.getByText(/удалить/);
+    await waitFor(() => expect(deleteButton).toBeInTheDocument());
   });
 });

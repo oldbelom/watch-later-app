@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { Context } from "../../index";
 import "./FilmCard.scss";
 
-const FilmCard: React.FC<FilmCardProps> = ({ film, isDeleteButton }) => {
+const FilmCard: React.FC<FilmCardProps> = ({ film, deleteButton }) => {
   const { auth, firestore } = useContext(Context);
   const [user] = useAuthState(auth);
 
@@ -27,7 +27,7 @@ const FilmCard: React.FC<FilmCardProps> = ({ film, isDeleteButton }) => {
       </p>
       <p>{film.year}</p>
       <p>{film.genres.map((genre: Genre) => genre.genre).join(" ")}</p>
-      {isDeleteButton ? (
+      {deleteButton ? (
         <Button
           onClick={() => deleteFilm(String(film.filmId))}
           text="удалить"

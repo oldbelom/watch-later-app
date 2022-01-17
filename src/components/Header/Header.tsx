@@ -9,10 +9,9 @@ import "./Header.scss";
 const Header = () => {
   const { auth } = useContext(Context);
   const [user] = useAuthState(auth);
-  console.log(user);
 
   return (
-    <div className="header">
+    <div className="header" data-testid="header">
       <h1 className="header__title">Watch later</h1>
       {user ? (
         <>
@@ -30,7 +29,7 @@ const Header = () => {
         </>
       ) : (
         <>
-          <NavLink to="/login">
+          <NavLink to="/login" data-testid="header-log-link">
             <Button text="Регистрация" />
           </NavLink>
           <NavLink to="/signin">
