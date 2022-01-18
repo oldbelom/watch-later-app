@@ -17,6 +17,7 @@ export default class SearchPage extends React.Component<
     value: "",
     searchResult: [],
     isLoading: false,
+    showNoResultStr: false,
   };
 
   handleSubmit = async (e: FormEvent) => {
@@ -33,10 +34,12 @@ export default class SearchPage extends React.Component<
       },
     });
     const data = await response.json();
+    console.log(data);
 
     this.setState((state) => ({
       isLoading: !state.isLoading,
       searchResult: data.films,
+      showNoResultStr: !data.films.length,
     }));
   };
 
@@ -78,6 +81,9 @@ export default class SearchPage extends React.Component<
               <FilmCard key={film.filmId} film={film} />
             ))}
           </div>
+        )}
+        {this.state.showNoResultStr && (
+          <p className="absolute-center">По вашему запросу ничего не найдено</p>
         )}
       </div>
     );

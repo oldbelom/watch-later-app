@@ -20,6 +20,7 @@ interface SearchPageState {
   value: string;
   searchResult: Film[];
   isLoading: boolean;
+  showNoResultStr: boolean;
 }
 
 interface SearchPageProps {
