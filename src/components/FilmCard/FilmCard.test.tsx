@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import FilmCard from "./FilmCard";
 
-describe("Button", () => {
+describe("FilmCard", () => {
   it("render component", async () => {
     const film = {
       nameRu: "The Lost",

@@ -12,7 +12,7 @@ const Playlist = () => {
 
   if (loading) {
     return (
-      <div className="absolute-center">
+      <div className="absolute-center" data-testid="playlist-loader">
         <Loader />
       </div>
     );

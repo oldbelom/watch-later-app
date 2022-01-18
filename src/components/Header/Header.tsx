@@ -24,12 +24,16 @@ const Header = () => {
           </nav>
           <div>
             <p className="header__user-name">{user.email}</p>
-            <Button onClick={() => auth.signOut()} text="Выйти" />
+            <Button
+              onClick={() => auth.signOut()}
+              text="Выйти"
+              data-testid="header-btn"
+            />
           </div>
         </>
       ) : (
         <>
-          <NavLink to="/login" data-testid="header-log-link">
+          <NavLink to="/login">
             <Button text="Регистрация" />
           </NavLink>
           <NavLink to="/signin">
