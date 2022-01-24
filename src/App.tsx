@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { HashRouter } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Header from "./components/Header/Header";
-import AppRouter from "./components/AppRouter";
+import AppRouter from "./components/AppRouter/AppRouter";
 import { Context } from "./index";
 import Loader from "./components/Loader/Loader";
 
