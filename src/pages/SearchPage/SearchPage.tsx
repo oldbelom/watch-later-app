@@ -34,7 +34,6 @@ export default class SearchPage extends React.Component<
       },
     });
     const data = await response.json();
-    console.log(data);
 
     this.setState((state) => ({
       isLoading: !state.isLoading,

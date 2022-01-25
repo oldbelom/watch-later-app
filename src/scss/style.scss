@@ -25,6 +25,12 @@ input {
   height: 50px;
   padding: 5px 15px;
   font-size: 22px;
+
+  @media only screen and (max-width: 982px) {
+    width: 80vw;
+    height: 40px;
+    font-size: 18px;
+  }
 }
 
 .absolute-center {
@@ -42,6 +48,10 @@ input {
 
 .page-indent {
   padding: 30px 50px;
+
+  @media only screen and (max-width: 982px) {
+    padding: 20px 15px;
+  }
 }
 
 .auth-form {
@@ -63,5 +73,10 @@ input {
   &__btn-block {
     height: 120px;
     text-align: center;
+  }
+
+  @media only screen and (max-width: 982px) {
+    justify-content: flex-start;
+    padding-top: 40px;
   }
 }

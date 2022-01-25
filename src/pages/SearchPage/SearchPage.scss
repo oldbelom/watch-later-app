@@ -13,4 +13,15 @@
     align-items: center;
     margin-bottom: 50px;
   }
+
+  @media only screen and (max-width: 982px) {
+    .button {
+      padding: 10px 20px;
+    }
+
+    .absolute-center {
+      top: 65%;
+      text-align: center;
+    }
+  }
 }

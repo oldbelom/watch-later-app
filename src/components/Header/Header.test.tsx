@@ -16,8 +16,8 @@ describe("Header", () => {
     await waitFor(() => expect(element).toBeInTheDocument());
   });
   it("render sign out btn if user is logged in", async () => {
-    jest.spyOn(auth, "useAuthState");
-    auth.useAuthState.mockReturnValue([{ uid: "test" }]);
+    const useAuthSpy = jest.spyOn(auth, "useAuthState");
+    useAuthSpy.mockReturnValue([{ uid: "test" }, true, true]);
     render(
       <HashRouter>
         <Header />
