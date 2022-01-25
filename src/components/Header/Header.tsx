@@ -51,7 +51,6 @@ const Header = () => {
                   closeMenu();
                 }}
                 text="Выйти"
-                data-testid="header-btn"
               />
             </div>
           </div>
@@ -74,6 +73,7 @@ const Header = () => {
         ref={burgerRef}
         className="header__burger"
         onClick={toggleMenuVisible}
+        data-testid="header-burger"
       >
         <span className="header__burger-item"></span>
         <span className="header__burger-item"></span>
