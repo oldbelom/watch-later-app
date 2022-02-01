@@ -1,0 +1,82 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+input {
+  margin-bottom: 40px;
+  width: 50vw;
+  height: 50px;
+  padding: 5px 15px;
+  font-size: 22px;
+
+  @media only screen and (max-width: 982px) {
+    width: 80vw;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-indent {
+  padding: 30px 50px;
+
+  @media only screen and (max-width: 982px) {
+    padding: 20px 15px;
+  }
+}
+
+.auth-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 80px);
+
+  &__title {
+    font-size: 25px;
+    padding-bottom: 30px;
+  }
+
+  &__error {
+    color: tomato;
+  }
+
+  &__btn-block {
+    height: 120px;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 982px) {
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+}
